@@ -27,7 +27,7 @@ class Counter extends EventEmitter {
 
 // Counter.prototype = new EventEmitter(); throws an error, because we arent directly assigning the EventEmitter prototype to the constructor prototype but instead, assigning an instance of the EventEmitter
 // To resolve this, you should set the prototype to EventEmitter.prototype
-Counter.prototype = EventEmitter.prototype;
+// Counter.prototype = EventEmitter.prototype;
 const counterObj = new Counter(10);
 
 //callback
