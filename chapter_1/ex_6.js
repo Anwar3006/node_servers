@@ -17,6 +17,7 @@ const processData = (outputFilePath) => {
       console.log("Output File Created!");
     }
 
+    //take input from stdin and write to file
     const inputStream = process.stdin;
     const outputStream = fs.createWriteStream(outputPath, {
       flags: "w",
