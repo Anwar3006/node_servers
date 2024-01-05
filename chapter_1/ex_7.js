@@ -8,6 +8,7 @@
 const udp = require("dgram");
 const path = require("path");
 const fs = require("fs");
+const { exit } = require("process");
 
 //Server
 const server = udp.createSocket("udp4");
@@ -24,8 +25,18 @@ const outputStream = fs.createWriteStream(filePath, {
   mode: 0o666,
 });
 
+server.on("listening", (err) => {
+  if (err) {
+    console.error(err.message);
+    exit(1);
+  }
+  console.log("Server start successful. Ready for connections");
+});
+
+server.on("connection", () => console.log("user connected!"));
+
 server.on("message", (message, info) => {
-  let serverResponse = "message received: " + message + " from " + info.address;
+  let serverResponse = "==> message received: " + message + " from server";
   server.send(serverResponse, info.port, info.address, (err) => {
     if (err) console.error(err);
   });
@@ -36,11 +47,3 @@ server.on("message", (message, info) => {
   );
 });
 server.on("close", () => outputStream.end());
-
-//client
-const client = udp.createSocket("udp4");
-process.stdin.on("data", (data) => {
-  client.send(data, 4040, "localhost", (err) => {
-    if (err) throw err;
-  });
-});
