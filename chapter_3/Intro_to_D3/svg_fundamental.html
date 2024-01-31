@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Fundamentals</title>
+  </head>
+  <body>
+    <svg width="300" height="200">
+      <circle cx="60" cy="60" r="50"></circle>
+      <circle cx="100" cy="70" r="50" fill="red"></circle>
+      <circle cx="150" cy="80" r="50" fill="purple"></circle>
+      <rect
+        x="1"
+        y="1"
+        width="250"
+        height="140"
+        fill="none"
+        stroke="green"
+        stroke-width="5"></rect>
+    </svg>
+    <svg width="200" height="200" cx="360" cy="0">
+      <path d="M 10 10 h80 v80 h-90 Z" stroke="blue" fill="transparent"></path>
+    </svg>
+
+    <svg width="800" height="600">
+      <g transform="translate(400, 300)">
+        <g class="arc">
+          <path
+            d="M-162.192,-252.376A300,300,0,0,1,0,-300L0,0Z"
+            fill="#1f77b4"></path>
+        </g>
+        <g class="arc">
+          <path
+            d="M-296.946,42.694A300,300,0,0,1,-162.192,-252.376L0,0Z"
+            fill="#ff7f0e"></path>
+        </g>
+        <g class="arc">
+          <path
+            d="M84.52,287.848A300,300,0,0,1,-296.946,42.694L0,0Z"
+            fill="#2ca02c"></path>
+        </g>
+        <g class="arc">
+          <path
+            d="M0,-300A300,300,0,0,1,84.52,287.848L0,0Z"
+            fill="#d62728"></path>
+        </g>
+      </g>
+    </svg>
+  </body>
+</html>
